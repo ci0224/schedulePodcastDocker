@@ -64,6 +64,8 @@ async def generate_day_summary(visits: List[PatientVisit]):
         prompt = f"""As a medical assistant, generate a concise morning briefing for a doctor about their day's schedule. 
 Include relevant patient history and important medical information. Be professional but conversational.
 
+IMPORTANT: For each patient, always start by clearly stating their name, age, and gender (e.g., "John Smith, a 45-year-old male" or "Sarah Johnson, a 32-year-old female").
+
 Today's schedule:
 {chr(10).join(f'''
 Time: {visit.time}
@@ -80,7 +82,7 @@ Medical History:
 ''' if visit.patientDetails else 'New patient, no medical history available')}
 ''' for visit in visits)}
 
-Please provide a natural, conversational summary that the doctor can listen to while preparing for their day."""
+Please provide a natural, conversational summary that the doctor can listen to while preparing for their day. Remember to always start each patient's description with their name, age, and gender."""
 
         logger.info("Sending request to OpenAI")
         completion = await openai.chat.completions.create(
