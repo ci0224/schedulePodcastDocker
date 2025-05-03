@@ -1,0 +1,2 @@
+1. backend we use fastAPI, openai, model = gpt-4.1-mini
+2. frontend we use react-router app, vite for dev, port has to be 3005
