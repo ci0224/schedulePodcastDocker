@@ -16,7 +16,12 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3005:80"
+      - "3005:3005"  # Changed to match the dev server port
+    volumes:
+      - ./frontend:/app  # Mount the frontend directory for hot reloading
+      - /app/node_modules  # Preserve node_modules in container
+    working_dir: /app
+    command: npm run dev
     depends_on:
       - backend
     networks:
