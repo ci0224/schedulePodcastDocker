@@ -1,5 +1,8 @@
 
-# Hi Xi and Wei can you guys please update readme on how to download the frontend files because i am getting no frontend files after cloning it
+# Clone this repository manually
+```bash
+git clone --recursive https://github.com/ci0224/schedulePodcastDocker.git
+```
 
 # speech of today
 
